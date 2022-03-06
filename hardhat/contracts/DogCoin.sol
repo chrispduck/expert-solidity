@@ -8,6 +8,8 @@ contract DogCoin is ERC20 {
     constructor() ERC20("DogCoin", "DOG") {}
 
     address[] public holders;
+    event newHolder(address);
+    event deletedHolder (address);
 
     function _afterTokenTransfer(
         address from,
@@ -25,6 +27,7 @@ contract DogCoin is ERC20 {
             }
         }
         holders.push(account);
+        emit newHolder(account);
     }
 
     function _deleteHolderIfBalanceZero(address account) internal {
@@ -40,5 +43,6 @@ contract DogCoin is ERC20 {
                 return;
             }
         }
+        emit deletedHolder(account);
     }
 }

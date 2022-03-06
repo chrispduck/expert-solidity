@@ -5,11 +5,11 @@ import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract DogCoin is ERC20 {
-    constructor() ERC20("DogCoin", "DOG") {}
-
     address[] public holders;
     event newHolder(address);
-    event deletedHolder (address);
+    event deletedHolder(address);
+
+    constructor() ERC20("DogCoin", "DOG") {}
 
     function _afterTokenTransfer(
         address from,

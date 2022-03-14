@@ -14,8 +14,6 @@ describe("TryingYul", function () {
     // Must be done from another contract
     let tx = await contract.paidValueSolidity({value: 100});
     let txReceipt = await tx.wait();
-    // console.log(tx)
-    // console.log(txReceipt)
 
     let val = await contract.callStatic.paidValue({value : 100});
     expect(val).to.equal(100);

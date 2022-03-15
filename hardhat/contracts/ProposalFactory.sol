@@ -21,13 +21,6 @@ contract Proposal {
         _;
     }
 
-    modifier timedTransitions(State _state){
-        if (state == State.Voting &&  block.timestamp > creationTime + 7 days) {
-            nextStage();
-        }
-        _;
-    }
-
     function nextStage() internal {
         state = State(uint(state) + 1);
     }
@@ -44,6 +37,19 @@ contract Proposal {
 
     }
 
+}
+
+contract ProposalFactoryTransparentProxy { 
+    address implementation;
+    address admin;
+    fallback() external payable {
+        require(msg.sender != admin);
+        implementation.delegatecall(abi.encodeWithSelector(bytes4, arg);)
+    }
+    function upgrade(address newImplementation) external {
+        if (msg.sender != admin) fallback();
+        implementation = newImplementation;
+} 
 }
 
 contract ProposalFactory {

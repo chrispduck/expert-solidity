@@ -10,46 +10,26 @@ contract Proposal {
         Rejected
     }
     State public state = State.Proposed;
-    uint public creationTime = block.timestamp; 
-    
+    uint256 public creationTime = block.timestamp;
+
     constructor(int256 _id) {
         id = _id;
     }
 
-    modifier atState(State _state){
-        require(state==_state);
+    modifier atState(State _state) {
+        require(state == _state);
         _;
     }
 
     function nextStage() internal {
-        state = State(uint(state) + 1);
+        state = State(uint256(state) + 1);
     }
 
-    function initiateVoting() atState(State.Proposed) public {
-        
-    }
+    function initiateVoting() public atState(State.Proposed) {}
 
-    function vote() atState(State.Voting) public {
-        
-    }
-    
-    function endVoting() atState(State.Voting) public {
+    function vote() public atState(State.Voting) {}
 
-    }
-
-}
-
-contract ProposalFactoryTransparentProxy { 
-    address implementation;
-    address admin;
-    fallback() external payable {
-        require(msg.sender != admin);
-        implementation.delegatecall(abi.encodeWithSelector(bytes4, arg);)
-    }
-    function upgrade(address newImplementation) external {
-        if (msg.sender != admin) fallback();
-        implementation = newImplementation;
-} 
+    function endVoting() public atState(State.Voting) {}
 }
 
 contract ProposalFactory {

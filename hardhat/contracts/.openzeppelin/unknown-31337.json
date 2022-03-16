@@ -1,0 +1,43 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+    "txHash": "0x1df8d978f81e0adf5a8050aa6e101c4f20e4d5c5c1ce27715efb7a3cc8f002d7"
+  },
+  "proxies": [
+    {
+      "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      "txHash": "0xaf0769cccaa2c74afa83e0e5391354909b30b910049712bf43a72ce335f2136d",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      "txHash": "0xe81590e8627d771bd870802a1dc6bf6044dead41656ed6b728ae8201c6a241f4",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "7fe4340f053dfe284c45850c3eea46d2f6bc6e0d26c773614bb749fc1cc3452a": {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "txHash": "0x6d3960666d894a60c6d14cdf423a970f1ec9478126b6cdc1cbf19b036466c549",
+      "layout": {
+        "storage": [
+          {
+            "label": "ProposalId",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_int256",
+            "contract": "ProposalFactory",
+            "src": "contracts/ProposalFactory.sol:44"
+          }
+        ],
+        "types": {
+          "t_int256": {
+            "label": "int256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    }
+  }
+}
